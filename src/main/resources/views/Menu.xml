@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+  <menuitem name="menu-axelor-developer-tools" title="Developer Tools" order="99" groups="admins"
+            icon-background="#1e1e1e" icon="fa-terminal"/>
+
+  <menuitem name="menu-jpql-queries" title="JPQL Queries" parent="menu-axelor-developer-tools"
+            action="jpql.queries.all" icon-background="#1e1e1e" icon="fa-search"/>
+
+  <action-view name="jpql.queries.all" title="JPQL Queries" model="com.axelor.apps.devtools.db.JpqlQuery">
+    <view type="grid" name="jpql-query-grid"/>
+    <view type="form" name="jpql-query-form"/>
+  </action-view>
+
+  <menuitem name="menu-groovy-scripts" title="Groovy Scripts" parent="menu-axelor-developer-tools"
+            action="groovy.scripts.all" icon-background="#1e1e1e" icon="fa-cogs"/>
+
+  <action-view name="groovy.scripts.all" title="Groovy Scripts" model="com.axelor.apps.devtools.db.GroovyScript">
+    <view type="grid" name="groovy-script-grid"/>
+    <view type="form" name="groovy-script-form"/>
+  </action-view>
+
+</object-views>

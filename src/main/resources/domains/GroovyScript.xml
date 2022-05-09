@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+  <module name="devtools" package="com.axelor.apps.devtools.db"/>
+
+  <entity name="GroovyScript">
+    <many-to-one name="metaModel" title="Meta model" ref="com.axelor.meta.db.MetaModel"/>
+    <long name="targetId" title="Id" default="1"/>
+    <string name="script" title="Script" large="true" multiline="true"/>
+  </entity>
+
+
+</domain-models>

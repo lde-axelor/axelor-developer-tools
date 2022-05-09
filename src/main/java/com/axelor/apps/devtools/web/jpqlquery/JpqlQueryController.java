@@ -1,0 +1,22 @@
+package com.axelor.apps.devtools.web.jpqlquery;
+
+import com.axelor.apps.devtools.db.JpqlQuery;
+import com.axelor.apps.devtools.service.jpqlquery.JpqlQueryServiceImpl;
+import com.axelor.inject.Beans;
+import com.axelor.rpc.ActionRequest;
+import com.axelor.rpc.ActionResponse;
+
+public class JpqlQueryController {
+  public void run(ActionRequest request, ActionResponse response) {
+    try {
+      JpqlQuery jpqlQuery = request.getContext().asType(JpqlQuery.class);
+      response.setValue("$result", Beans.get(JpqlQueryServiceImpl.class).run(jpqlQuery));
+    } catch (Exception e) {
+      response.setValue(
+          "$result",
+          e.getCause() == null
+              ? e.getMessage()
+              : String.format("%s%n%s", e.getMessage(), e.getCause()));
+    }
+  }
+}

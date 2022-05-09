@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+  <grid name="jpql-query-grid" title="JPQL Queries" model="com.axelor.apps.devtools.db.JpqlQuery">
+    <field name="metaModel"/>
+    <field name="filter"/>
+  </grid>
+
+  <form name="jpql-query-form" title="JPQL Query" model="com.axelor.apps.devtools.db.JpqlQuery" width="large">
+    <toolbar>
+      <button name="run" title="Run" css="btn-success" onClick="save,action-jpql-query-method-run"
+              readonlyIf="metaModel == null || filter == null || filter == ''"/>
+    </toolbar>
+    <panel name="mainPanel">
+      <field name="metaModel"/>
+      <field name="filter" colSpan="12" widget="CodeEditor" height="250"/>
+      <field name="$result" type="text" readonly="true" widget="CodeEditor" colSpan="12" title="Result" height="400"/>
+    </panel>
+  </form>
+
+  <action-method name="action-jpql-query-method-run">
+    <call class="com.axelor.apps.devtools.web.jpqlquery.JpqlQueryController" method="run"/>
+  </action-method>
+
+</object-views>
