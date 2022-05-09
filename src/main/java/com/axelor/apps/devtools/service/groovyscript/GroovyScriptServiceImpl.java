@@ -9,8 +9,9 @@ import com.axelor.script.GroovyScriptHelper;
 import org.apache.commons.lang3.text.WordUtils;
 import java.util.Objects;
 
-public class GroovyScriptServiceImpl {
+public class GroovyScriptServiceImpl implements GroovyScriptService {
 
+  @Override
   public String run(GroovyScript groovyScript) throws ClassNotFoundException {
     Class<? extends Model> klass =
         Class.forName(groovyScript.getMetaModel().getFullName()).asSubclass(Model.class);

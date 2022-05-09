@@ -10,8 +10,9 @@ import com.axelor.i18n.I18n;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class JpqlQueryServiceImpl {
+public class JpqlQueryServiceImpl implements JpqlQueryService {
 
+  @Override
   public String run(JpqlQuery jpqlQuery) throws ClassNotFoundException {
     Class<? extends Model> klass =
         Class.forName(jpqlQuery.getMetaModel().getFullName()).asSubclass(Model.class);
