@@ -8,6 +8,7 @@ import com.axelor.db.mapper.Property;
 import com.axelor.db.mapper.PropertyType;
 import com.axelor.i18n.I18n;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class JpqlQueryServiceImpl implements JpqlQueryService {
@@ -29,10 +30,10 @@ public class JpqlQueryServiceImpl implements JpqlQueryService {
 
   protected String getHeaders(Mapper mapper) {
     StringJoiner stringJoiner = new StringJoiner(" | ");
-    stringJoiner.add("'id'");
+    stringJoiner.add("\"id\"");
     for (Property property : mapper.getProperties()) {
       if (property.getType().equals(PropertyType.STRING)) {
-        stringJoiner.add(String.format("'%s'", property.getName()));
+        stringJoiner.add(String.format("\"%s\"", property.getName()));
       }
     }
     return stringJoiner.toString();
@@ -43,7 +44,8 @@ public class JpqlQueryServiceImpl implements JpqlQueryService {
     stringJoiner.add(model.getId().toString());
     for (Property property : mapper.getProperties()) {
       if (property.getType().equals(PropertyType.STRING)) {
-        stringJoiner.add(String.format("'%s'", property.get(model)));
+        stringJoiner.add(
+            String.format("\"%s\"", Objects.toString(property.get(model)).replace("\"", "\\\"")));
       }
     }
     return stringJoiner.toString();

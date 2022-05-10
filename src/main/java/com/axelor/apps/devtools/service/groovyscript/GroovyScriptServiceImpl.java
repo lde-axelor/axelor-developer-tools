@@ -6,8 +6,8 @@ import com.axelor.db.Model;
 import com.axelor.db.mapper.Mapper;
 import com.axelor.rpc.Context;
 import com.axelor.script.GroovyScriptHelper;
-import org.apache.commons.lang3.text.WordUtils;
 import java.util.Objects;
+import org.apache.commons.lang3.text.WordUtils;
 
 public class GroovyScriptServiceImpl implements GroovyScriptService {
 
@@ -16,7 +16,7 @@ public class GroovyScriptServiceImpl implements GroovyScriptService {
     Class<? extends Model> klass =
         Class.forName(groovyScript.getMetaModel().getFullName()).asSubclass(Model.class);
     JpaRepository<? extends Model> repository = JpaRepository.of(klass);
-    Model model = repository.find(groovyScript.getId());
+    Model model = repository.find(groovyScript.getTargetId());
     GroovyScriptHelper groovyScriptHelper =
         new GroovyScriptHelper(new Context(Mapper.toMap(model), klass));
     return WordUtils.wrap(Objects.toString(groovyScriptHelper.eval(groovyScript.getScript())), 180);

@@ -12,11 +12,7 @@ public class GroovyScriptController {
       GroovyScript groovyScript = request.getContext().asType(GroovyScript.class);
       response.setValue("$result", Beans.get(GroovyScriptService.class).run(groovyScript));
     } catch (Exception e) {
-      response.setValue(
-          "$result",
-          e.getCause() == null
-              ? e.getMessage()
-              : String.format("%s%n%s", e.getMessage(), e.getCause()));
+      response.setValue("$result", String.format("%s%n%s", e.getMessage(), e.getCause()));
     }
   }
 }

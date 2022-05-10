@@ -1,6 +1,6 @@
 # Axelor Developer Tools
 
-This module aim to bring some useful tools for developers working on Axelor's applications.  
+This module aims to bring some useful tools for developers working on Axelor's applications.  
 It has no dependencies other than Axelor Open Platform itself.
 
 ## The tools
