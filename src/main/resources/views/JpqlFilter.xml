@@ -21,7 +21,7 @@
   </form>
 
   <action-method name="action-jpql-filter-method-run">
-    <call class="com.axelor.apps.devtools.web.jpqlquery.JpqlFilterController" method="run"/>
+    <call class="com.axelor.apps.devtools.web.jpqlfilter.JpqlFilterController" method="run"/>
   </action-method>
 
 </object-views>

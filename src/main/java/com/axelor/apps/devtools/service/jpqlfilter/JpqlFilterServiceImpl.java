@@ -1,4 +1,4 @@
-package com.axelor.apps.devtools.service.jpqlquery;
+package com.axelor.apps.devtools.service.jpqlfilter;
 
 import com.axelor.apps.devtools.db.JpqlFilter;
 import com.axelor.db.JpaRepository;

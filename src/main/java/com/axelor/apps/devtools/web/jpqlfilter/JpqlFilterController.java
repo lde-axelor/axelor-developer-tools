@@ -1,7 +1,7 @@
-package com.axelor.apps.devtools.web.jpqlquery;
+package com.axelor.apps.devtools.web.jpqlfilter;
 
 import com.axelor.apps.devtools.db.JpqlFilter;
-import com.axelor.apps.devtools.service.jpqlquery.JpqlFilterService;
+import com.axelor.apps.devtools.service.jpqlfilter.JpqlFilterService;
 import com.axelor.inject.Beans;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;

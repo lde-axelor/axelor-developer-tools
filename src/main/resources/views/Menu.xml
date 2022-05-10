@@ -7,9 +7,9 @@
             icon-background="#1e1e1e" icon="fa-terminal"/>
 
   <menuitem name="menu-jpql-filters" title="JPQL Filters" parent="menu-axelor-developer-tools"
-            action="jpql.queries.all" icon-background="#1e1e1e" icon="fa-search"/>
+            action="jpql.filters.all" icon-background="#1e1e1e" icon="fa-search"/>
 
-  <action-view name="jpql.queries.all" title="JPQL Filters" model="com.axelor.apps.devtools.db.JpqlFilter">
+  <action-view name="jpql.filters.all" title="JPQL Filters" model="com.axelor.apps.devtools.db.JpqlFilter">
     <view type="grid" name="jpql-filter-grid"/>
     <view type="form" name="jpql-filter-form"/>
   </action-view>
