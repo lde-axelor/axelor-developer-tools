@@ -12,7 +12,7 @@ public class JpqlQueryController {
       JpqlQuery jpqlQuery = request.getContext().asType(JpqlQuery.class);
       response.setValue("$result", Beans.get(JpqlQueryService.class).run(jpqlQuery));
     } catch (Exception e) {
-      response.setValue("$result", String.format("%s%n%s", e.getMessage(), e.getCause()));
+      response.setValue("$result", String.format("%s%n%s", e, e.getCause()));
     }
   }
 }
