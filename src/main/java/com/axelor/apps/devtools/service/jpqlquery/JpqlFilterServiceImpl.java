@@ -1,6 +1,6 @@
 package com.axelor.apps.devtools.service.jpqlquery;
 
-import com.axelor.apps.devtools.db.JpqlQuery;
+import com.axelor.apps.devtools.db.JpqlFilter;
 import com.axelor.db.JpaRepository;
 import com.axelor.db.Model;
 import com.axelor.db.mapper.Mapper;
@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-public class JpqlQueryServiceImpl implements JpqlQueryService {
+public class JpqlFilterServiceImpl implements JpqlFilterService {
 
   @Override
-  public String run(JpqlQuery jpqlQuery) throws ClassNotFoundException {
+  public String run(JpqlFilter jpqlFilter) throws ClassNotFoundException {
     Class<? extends Model> klass =
-        Class.forName(jpqlQuery.getMetaModel().getFullName()).asSubclass(Model.class);
+        Class.forName(jpqlFilter.getMetaModel().getFullName()).asSubclass(Model.class);
     JpaRepository<? extends Model> repository = JpaRepository.of(klass);
     List<? extends Model> models =
-        repository.all().filter(jpqlQuery.getFilter()).order("id").fetch();
+        repository.all().filter(jpqlFilter.getFilter()).order("id").fetch();
     StringJoiner stringJoiner = new StringJoiner("\n");
     Mapper mapper = Mapper.of(klass);
     stringJoiner.add(String.format(I18n.get("Number of results : %s"), models.size()));

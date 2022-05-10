@@ -5,7 +5,7 @@
 
   <module name="devtools" package="com.axelor.apps.devtools.db"/>
 
-  <entity name="JpqlQuery">
+  <entity name="JpqlFilter">
     <many-to-one name="metaModel" title="Meta model" ref="com.axelor.meta.db.MetaModel"/>
     <string name="filter" title="Filter" large="true" multiline="true"/>
   </entity>

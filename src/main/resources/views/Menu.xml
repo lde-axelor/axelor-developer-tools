@@ -6,12 +6,12 @@
   <menuitem name="menu-axelor-developer-tools" title="Developer Tools" order="99" groups="admins"
             icon-background="#1e1e1e" icon="fa-terminal"/>
 
-  <menuitem name="menu-jpql-queries" title="JPQL Queries" parent="menu-axelor-developer-tools"
+  <menuitem name="menu-jpql-filters" title="JPQL Filters" parent="menu-axelor-developer-tools"
             action="jpql.queries.all" icon-background="#1e1e1e" icon="fa-search"/>
 
-  <action-view name="jpql.queries.all" title="JPQL Queries" model="com.axelor.apps.devtools.db.JpqlQuery">
-    <view type="grid" name="jpql-query-grid"/>
-    <view type="form" name="jpql-query-form"/>
+  <action-view name="jpql.queries.all" title="JPQL Filters" model="com.axelor.apps.devtools.db.JpqlFilter">
+    <view type="grid" name="jpql-filter-grid"/>
+    <view type="form" name="jpql-filter-form"/>
   </action-view>
 
   <menuitem name="menu-groovy-scripts" title="Groovy Scripts" parent="menu-axelor-developer-tools"
