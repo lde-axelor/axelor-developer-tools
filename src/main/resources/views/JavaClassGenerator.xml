@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+  <form name="java-class-generator-form" title="Java Class Generator"
+        model="com.axelor.apps.devtools.db.JavaClassGenerator" width="large" canSave="false" canNew="false"
+        canArchive="false" canDelete="false" canAttach="false" canCopy="false">
+    <toolbar>
+      <button name="run" title="Run" css="btn-success" onClick="action-java-class-generator-method-run"
+              readonlyIf="json == null || json == ''"/>
+    </toolbar>
+    <panel name="mainPanel">
+      <field name="json" colSpan="12" widget="CodeEditor" height="250"/>
+    </panel>
+  </form>
+
+  <action-method name="action-java-class-generator-method-run">
+    <call class="com.axelor.apps.devtools.web.javaclassgenerator.JavaClassGeneratorController" method="run"/>
+  </action-method>
+
+</object-views>

@@ -22,4 +22,14 @@
     <view type="form" name="groovy-script-form"/>
   </action-view>
 
+  <menuitem name="menu-java-class-generator" title="Java Class Generator" parent="menu-axelor-developer-tools"
+            action="java.class.generator.all" icon-background="#1e1e1e" icon="fa-code"/>
+
+  <action-view name="java.class.generator.all" title="Java Class Generator"
+               model="com.axelor.apps.devtools.db.JavaClassGenerator">
+    <view type="form" name="java-class-generator-form"/>
+    <view-param name="forceEdit" value="true"/>
+    <context name="_showSingle" expr="true"/>
+  </action-view>
+
 </object-views>

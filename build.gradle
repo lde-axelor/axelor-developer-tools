@@ -3,3 +3,7 @@ apply plugin: 'com.axelor.app-module'
 axelor {
   title = "Axelor :: Developer Tools"
 }
+
+dependencies {
+  implementation 'org.jsonschema2pojo:jsonschema2pojo-core:1.1.2'
+}
