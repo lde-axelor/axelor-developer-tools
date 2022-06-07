@@ -29,7 +29,15 @@
                model="com.axelor.apps.devtools.db.JavaClassGenerator">
     <view type="form" name="java-class-generator-form"/>
     <view-param name="forceEdit" value="true"/>
-    <context name="_showSingle" expr="true"/>
+  </action-view>
+
+  <menuitem name="menu-meta-field-remover" title="Meta Field Remover" parent="menu-axelor-developer-tools"
+            action="meta.field.remover.all" icon-background="#1e1e1e" icon="fa-trash"/>
+
+  <action-view name="meta.field.remover.all" title="Meta Field Remover"
+               model="com.axelor.apps.devtools.db.MetaFieldRemover">
+    <view type="form" name="meta-field-remover-form"/>
+    <view-param name="forceEdit" value="true"/>
   </action-view>
 
 </object-views>

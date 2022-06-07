@@ -7,6 +7,8 @@ import com.axelor.apps.devtools.service.javaclassgenerator.JavaClassGeneratorSer
 import com.axelor.apps.devtools.service.javaclassgenerator.JavaClassGeneratorServiceImpl;
 import com.axelor.apps.devtools.service.jpqlfilter.JpqlFilterService;
 import com.axelor.apps.devtools.service.jpqlfilter.JpqlFilterServiceImpl;
+import com.axelor.apps.devtools.service.metafieldremover.MetaFieldRemoverService;
+import com.axelor.apps.devtools.service.metafieldremover.MetaFieldRemoverServiceImpl;
 
 public class DeveloperToolsModule extends AxelorModule {
 
@@ -15,5 +17,6 @@ public class DeveloperToolsModule extends AxelorModule {
     bind(JpqlFilterService.class).to(JpqlFilterServiceImpl.class);
     bind(GroovyScriptService.class).to(GroovyScriptServiceImpl.class);
     bind(JavaClassGeneratorService.class).to(JavaClassGeneratorServiceImpl.class);
+    bind(MetaFieldRemoverService.class).to(MetaFieldRemoverServiceImpl.class);
   }
 }

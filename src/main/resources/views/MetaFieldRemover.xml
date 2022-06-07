@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+  <form name="meta-field-remover-form" title="Meta Field Remover"
+        model="com.axelor.apps.devtools.db.MetaFieldRemover" width="large" canSave="false" canNew="false"
+        canArchive="false" canDelete="false" canAttach="false" canCopy="false">
+    <toolbar>
+      <button name="fetchOrphans" title="Fetch orphans meta fields" icon="fa-refresh" css="btn-success" onClick="action-meta-field-remover-method-fetch-orphans"/>
+      <button name="removeSelected" title="Remove selected meta fields" icon="fa-trash" css="btn-danger" onClick="action-meta-field-remover-method-remove-selected"/>
+    </toolbar>
+    <panel-related field="metaFieldSet" colSpan="12" x-selector="checkbox" readonly="true" height="28"/>
+  </form>
+
+  <action-method name="action-meta-field-remover-method-fetch-orphans">
+    <call class="com.axelor.apps.devtools.web.metafieldremover.MetaFieldRemoverController" method="fetchOrphans"/>
+  </action-method>
+
+  <action-method name="action-meta-field-remover-method-remove-selected">
+    <call class="com.axelor.apps.devtools.web.metafieldremover.MetaFieldRemoverController" method="removeSelected"/>
+  </action-method>
+
+</object-views>
