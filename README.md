@@ -5,5 +5,7 @@ It has no dependencies other than Axelor Open Platform itself.
 
 ## The tools
 
-- A JPQL Query engine
+- A JPQL Filter engine
 - A Groovy Script engine
+- A JSON based Java Classes generator
+- An Orphan Meta Fields remover
