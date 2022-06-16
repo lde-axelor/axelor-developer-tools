@@ -9,6 +9,7 @@
     <toolbar>
       <button name="fetchOrphans" title="Fetch orphans meta fields" icon="fa-refresh" css="btn-success" onClick="action-meta-field-remover-method-fetch-orphans"/>
       <button name="removeSelected" title="Remove selected meta fields" icon="fa-trash" css="btn-danger" onClick="action-meta-field-remover-method-remove-selected"/>
+      <button name="generateSql" title="Generate SQL Script" icon="fa-trash" css="btn-custom" onClick="action-meta-field-remover-method-generate-sql"/>
     </toolbar>
     <panel-related field="metaFieldSet" colSpan="12" x-selector="checkbox" readonly="true" height="28"/>
   </form>
@@ -19,6 +20,10 @@
 
   <action-method name="action-meta-field-remover-method-remove-selected">
     <call class="com.axelor.apps.devtools.web.metafieldremover.MetaFieldRemoverController" method="removeSelected"/>
+  </action-method>
+
+  <action-method name="action-meta-field-remover-method-generate-sql">
+    <call class="com.axelor.apps.devtools.web.metafieldremover.MetaFieldRemoverController" method="generateSql"/>
   </action-method>
 
 </object-views>
