@@ -95,7 +95,8 @@ public class MetaFieldRemoverServiceImpl implements MetaFieldRemoverService {
 
   protected void appendMetaFieldDeletion(PrintWriter pw, MetaField metaField) {
     pw.println(
-        String.format("DELETE FROM base_advanced_export_line WHERE meta_field = %s;", metaField.getId()));
+        String.format(
+            "DELETE FROM base_advanced_export_line WHERE meta_field = %s;", metaField.getId()));
     pw.println(String.format("DELETE FROM meta_field WHERE id = %s;", metaField.getId()));
   }
 }
