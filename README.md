@@ -9,3 +9,10 @@ It has no dependencies other than Axelor Open Platform itself.
 - A Groovy Script engine
 - A JSON based Java Classes generator
 - An Orphan Meta Fields remover
+
+## Tests
+
+You can start the tests by running the following Docker command:
+```bash
+$ docker build -t axelor-devtools --target test .
+```
