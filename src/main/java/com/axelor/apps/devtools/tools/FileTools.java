@@ -1,10 +1,14 @@
 package com.axelor.apps.devtools.tools;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.attribute.PosixFilePermission;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.IOUtils;
@@ -57,5 +61,22 @@ public class FileTools {
     } catch (Exception e) {
       return Optional.empty();
     }
+  }
+
+  public static void setPermissionsSafe(Path filePath) throws IOException {
+    Set<PosixFilePermission> perms = new HashSet<>();
+    // user permission
+    perms.add(PosixFilePermission.OWNER_READ);
+    perms.add(PosixFilePermission.OWNER_WRITE);
+    perms.add(PosixFilePermission.OWNER_EXECUTE);
+    // group permissions
+    perms.add(PosixFilePermission.GROUP_READ);
+    perms.add(PosixFilePermission.GROUP_EXECUTE);
+    // others permissions removed
+    perms.remove(PosixFilePermission.OTHERS_READ);
+    perms.remove(PosixFilePermission.OTHERS_WRITE);
+    perms.remove(PosixFilePermission.OTHERS_EXECUTE);
+
+    Files.setPosixFilePermissions(filePath, perms);
   }
 }

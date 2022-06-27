@@ -1,6 +1,7 @@
 package com.axelor.apps.devtools.service.metafieldremover;
 
 import com.axelor.apps.devtools.tools.FileExportTools;
+import com.axelor.apps.devtools.tools.FileTools;
 import com.axelor.db.JPA;
 import com.axelor.db.mapper.Mapper;
 import com.axelor.meta.db.MetaField;
@@ -78,9 +79,8 @@ public class MetaFieldRemoverServiceImpl implements MetaFieldRemoverService {
 
   @Override
   public Path generateSql(List<MetaField> metaFields) throws IOException {
-    FileAttribute<Set<PosixFilePermission>> attr =
-        PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString("rw-r--r--"));
-    Path path = Files.createTempFile("MetaFieldDeletion-", ".sql", attr);
+    Path path = Files.createTempFile("MetaFieldDeletion-", ".sql");
+    FileTools.setPermissionsSafe(path);
     try (PrintWriter pw = new PrintWriter(path.toFile())) {
       for (MetaField metaField : metaFields) {
         try {
